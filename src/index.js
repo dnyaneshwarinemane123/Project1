@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const sideMenu = document.querySelector("aside");
+const menuBtn = document.querySelector("#menu-btn");
+const closeBtn = document.querySelector("#close-btn");
+const themeToggler =document.querySelector(".theme-toggler");
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+menuBtn.addEventListener('click',()=>{
+  sideMenu.style.display='block';
+})
+
+closeBtn.addEventListener('click',()=>{
+  sideMenu.style.display='none';
+})
+
+themeToggler.addEventListener('click',()=>{
+  document.body.classList.toggle('dark-theme-variable');
+  themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+  themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+
+})
+
+// Orders.forEach(order=>{
+//   const tr =document.createElement('tr');
+//   const trContent=`
+//          <td>${order.productName}</td>
+//          <td>${order.productNumber}</td>
+//          <td>${order.productStatus}</td>
+//          <td class="${order.shipping===
+//           'Declined' ? 'denger' : order.shipping === 'pending' ? 'warning':'primary'}">
+//           ${order.shipping}</td>
+//           <td class="primary">Details</td>
+//          `;
+//          tr.innerHTML=trContent;
+//          document.querySelector('table tbody').appendChild(tr);
+// })
